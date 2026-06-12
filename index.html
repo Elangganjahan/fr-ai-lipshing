@@ -6,42 +6,31 @@
 <title>FR.AI.LIPSHING</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
-body{
-background:#0b1020;
-color:white;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#050816;color:#fff}
 
 header{
-padding:20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#111827;
-border-bottom:1px solid #222;
+padding:20px;
+background:#0f172a;
+position:sticky;
+top:0;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.logo img{
-height:60px;
-}
-
-.logo h1{
-font-size:28px;
+font-size:32px;
+font-weight:bold;
 background:linear-gradient(90deg,#00d4ff,#ff00ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 10px;
 }
 
 .hero{
@@ -49,15 +38,15 @@ text-align:center;
 padding:80px 20px;
 }
 
-.hero h2{
-font-size:48px;
+.hero h1{
+font-size:60px;
 margin-bottom:20px;
 }
 
 .hero p{
-font-size:20px;
 max-width:700px;
 margin:auto;
+font-size:20px;
 color:#cbd5e1;
 }
 
@@ -65,131 +54,182 @@ color:#cbd5e1;
 display:inline-block;
 margin-top:30px;
 padding:15px 35px;
+border-radius:12px;
 background:linear-gradient(90deg,#00d4ff,#ff00ff);
 color:white;
 text-decoration:none;
-border-radius:10px;
 font-weight:bold;
 }
 
-.features{
-padding:60px 20px;
+.stats{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
+padding:30px;
 }
 
 .card{
 background:#111827;
 padding:25px;
 border-radius:15px;
-box-shadow:0 0 20px rgba(0,212,255,.2);
 }
 
-.card h3{
-margin-bottom:10px;
+.card h2{
 color:#00d4ff;
+margin-bottom:10px;
+}
+
+.dashboard{
+padding:40px 20px;
 }
 
 .upload{
-padding:60px 20px;
-text-align:center;
-}
-
-.upload-box{
-max-width:600px;
-margin:auto;
 background:#111827;
 padding:30px;
 border-radius:15px;
+max-width:900px;
+margin:auto;
 }
 
 input{
 width:100%;
 padding:12px;
 margin:10px 0;
-background:#1f2937;
 border:none;
-color:white;
 border-radius:8px;
+background:#1f2937;
+color:white;
 }
 
 button{
 padding:15px 30px;
-background:linear-gradient(90deg,#00d4ff,#ff00ff);
 border:none;
-color:white;
 border-radius:10px;
 cursor:pointer;
+background:linear-gradient(90deg,#00d4ff,#ff00ff);
+color:white;
 font-weight:bold;
 }
 
-footer{
-padding:20px;
-text-align:center;
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px 20px;
+}
+
+.price{
 background:#111827;
+padding:30px;
+border-radius:15px;
+text-align:center;
+}
+
+footer{
+background:#0f172a;
+padding:30px;
+text-align:center;
 margin-top:50px;
-color:#94a3b8;
 }
 </style>
-
 </head>
 <body>
 
 <header>
-<div class="logo">
-<img src="logo.png" alt="FR.AI.LIPSHING">
-<h1>FR.AI.LIPSHING</h1>
-</div>
+<div class="logo">FR.AI.LIPSHING</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Dashboard</a>
+<a href="#">Pricing</a>
+<a href="#">Login</a>
+</nav>
 </header>
 
 <section class="hero">
-<h2>AI Lip Sync & Voice Cloning</h2>
+<h1>AI Lip Sync & Voice Cloning</h1>
+
 <p>
-Ubah foto menjadi video berbicara dengan sinkronisasi bibir realistis
-dan teknologi cloning suara AI.
+Platform AI profesional untuk membuat video berbicara dari foto dan cloning suara.
 </p>
 
-<a href="#upload" class="btn">Mulai Sekarang</a>
+<a class="btn" href="#dashboard">Mulai Gratis</a>
 </section>
 
-<section class="features">
+<section class="stats">
 
 <div class="card">
-<h3>🎙 Voice Cloning</h3>
-<p>Upload sampel suara dan AI akan membuat suara digital yang natural.</p>
+<h2>10K+</h2>
+<p>Video Generated</p>
 </div>
 
 <div class="card">
-<h3>🖼 AI Lip Sync</h3>
-<p>Foto statis berubah menjadi video berbicara dengan gerakan realistis.</p>
+<h2>5K+</h2>
+<p>Voice Clones</p>
 </div>
 
 <div class="card">
-<h3>🎬 Export HD</h3>
-<p>Download hasil video kualitas tinggi siap untuk TikTok dan YouTube.</p>
+<h2>99%</h2>
+<p>Lip Sync Accuracy</p>
 </div>
 
 </section>
 
-<section class="upload" id="upload">
+<section class="dashboard" id="dashboard">
 
-<div class="upload-box">
+<div class="upload">
 
-<h2>Generate Video</h2>
+<h2>🎬 Generate AI Video</h2>
 
 <input type="file" accept="image/*">
 
 <input type="file" accept="audio/*">
 
-<button>Generate AI Video</button>
+<button>Generate Lip Sync</button>
+
+<br><br>
+
+<h2>🎙 Voice Cloning</h2>
+
+<input type="file" accept="audio/*">
+
+<button>Create Voice Clone</button>
 
 </div>
 
 </section>
 
+<section class="pricing">
+
+<div class="price">
+<h2>FREE</h2>
+<h1>$0</h1>
+<p>30 Detik Video</p>
+<p>Watermark</p>
+</div>
+
+<div class="price">
+<h2>PRO</h2>
+<h1>$19</h1>
+<p>3 Menit Video</p>
+<p>Voice Cloning</p>
+<p>No Watermark</p>
+</div>
+
+<div class="price">
+<h2>CREATOR</h2>
+<h1>$49</h1>
+<p>Unlimited</p>
+<p>Priority Render</p>
+<p>API Access</p>
+</div>
+
+</section>
+
 <footer>
-© 2026 FR.AI.LIPSHING - Powered By AI
+© 2026 FR.AI.LIPSHING
+<br>
+AI Lip Sync & Voice Cloning Platform
 </footer>
 
 </body>
