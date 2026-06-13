@@ -193,7 +193,9 @@ Platform AI profesional untuk membuat video berbicara dari foto dan cloning suar
 
 <input type="file" accept="audio/*">
 
-<button>Create Voice Clone</button>
+<button onclick="loginGoogle()">
+  Login Google
+</button>
 
 </div>
 
@@ -231,6 +233,32 @@ Platform AI profesional untuk membuat video berbicara dari foto dan cloning suar
 <br>
 AI Lip Sync & Voice Cloning Platform
 </footer>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBZlYN1HxlCxc1p6MM-05sm-S3-hGaleZ0",
+  authDomain: "fr-ai-lipshing.firebaseapp.com",
+  projectId: "fr-ai-lipshing",
+  storageBucket: "fr-ai-lipshing.firebasestorage.app",
+  messagingSenderId: "734128052478",
+  appId: "1:734128052478:web:2624c623a9511a0e26adaf"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.loginGoogle = async function() {
+  const provider = new GoogleAuthProvider();
+  try {
+    const result = await signInWithPopup(auth, provider);
+    alert("Selamat datang " + result.user.displayName);
+  } catch(err) {
+    alert(err.message);
+  }
+}
+</script>
 
 </body>
 </html>
