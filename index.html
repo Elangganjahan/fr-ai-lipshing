@@ -193,7 +193,7 @@ Platform AI profesional untuk membuat video berbicara dari foto dan cloning suar
 
 <input type="file" accept="audio/*">
 
-<button onclick="loginGoogle()">
+<button id="loginBtn">
   Login Google
 </button>
 
@@ -235,7 +235,7 @@ AI Lip Sync & Voice Cloning Platform
 </footer>
   <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZlYN1HxlCxc1p6MM-05sm-S3-hGaleZ0",
@@ -249,15 +249,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-window.loginGoogle = async function() {
+document.getElementById("loginBtn").addEventListener("click", async () => {
   const provider = new GoogleAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    alert("Selamat datang " + result.user.displayName);
-  } catch(err) {
-    alert(err.message);
-  }
-}
+  await signInWithRedirect(auth, provider);
+});
 </script>
 
 </body>
