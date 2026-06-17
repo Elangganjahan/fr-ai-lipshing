@@ -8,101 +8,50 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#050816;color:#fff}
-
 header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px;
-background:#0f172a;
-position:sticky;
-top:0;
+display:flex;justify-content:space-between;align-items:center;
+padding:20px;background:#0f172a;position:sticky;top:0
 }
-
 .logo{
-font-size:32px;
-font-weight:bold;
+font-size:30px;font-weight:bold;
 background:linear-gradient(90deg,#00d4ff,#ff00ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
-
 nav a{
-color:white;
-text-decoration:none;
-margin:0 10px;
+color:#fff;text-decoration:none;margin-left:15px
 }
-
-.hero{
-text-align:center;
-padding:80px 20px;
-}
-
-.hero h1{
-font-size:60px;
-margin-bottom:20px;
-}
-
-.hero p{
-max-width:700px;
-margin:auto;
-font-size:20px;
-color:#cbd5e1;
-}
-
+.hero{text-align:center;padding:80px 20px}
+.hero h1{font-size:48px;margin-bottom:15px}
+.hero p{max-width:700px;margin:auto;color:#cbd5e1}
 .btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 35px;
-border-radius:12px;
+display:inline-block;margin-top:25px;padding:14px 28px;
+border-radius:12px;border:none;cursor:pointer;
 background:linear-gradient(90deg,#00d4ff,#ff00ff);
-color:white;
-text-decoration:none;
-font-weight:bold;
+color:white;font-weight:bold
 }
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-padding:30px;
+.section{
+padding:30px 20px;
+max-width:1000px;
+margin:auto;
 }
-
 .card{
 background:#111827;
-padding:25px;
+padding:20px;
 border-radius:15px;
+margin-bottom:20px;
 }
-
-.card h2{
-color:#00d4ff;
-margin-bottom:10px;
-}
-
-.dashboard{
-padding:40px 20px;
-}
-
-.upload{
-background:#111827;
-padding:30px;
-border-radius:15px;
-max-width:900px;
-margin:auto;
-}
-
 input{
 width:100%;
 padding:12px;
 margin:10px 0;
 border:none;
-border-radius:8px;
+border-radius:10px;
 background:#1f2937;
 color:white;
 }
-
 button{
-padding:15px 30px;
+padding:12px 20px;
 border:none;
 border-radius:10px;
 cursor:pointer;
@@ -110,173 +59,148 @@ background:linear-gradient(90deg,#00d4ff,#ff00ff);
 color:white;
 font-weight:bold;
 }
-
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:40px 20px;
-}
-
-.price{
-background:#111827;
-padding:30px;
-border-radius:15px;
+#userInfo{
+display:none;
 text-align:center;
 }
-
+#userPhoto{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-bottom:10px;
+}
 footer{
-background:#0f172a;
-padding:30px;
+padding:25px;
 text-align:center;
-margin-top:50px;
+background:#0f172a;
+margin-top:30px;
 }
 </style>
 </head>
 <body>
-<div id="userInfo" style="display:none;padding:20px;background:#111827;margin:20px;border-radius:15px;">
-  <img id="userPhoto" width="60" style="border-radius:50%;">
-  <h3 id="userName"></h3>
-  <p id="userEmail"></p>
 
-  <button id="logoutBtn">Logout</button>
-</div>
 <header>
 <div class="logo">FR.AI.LIPSHING</div>
-
 <nav>
 <a href="#">Home</a>
-<a href="#">Dashboard</a>
-<a href="#">Pricing</a>
-<a href="#">Login</a>
+<a href="#dashboard">Dashboard</a>
 </nav>
 </header>
 
 <section class="hero">
 <h1>AI Lip Sync & Voice Cloning</h1>
-
 <p>
-Platform AI profesional untuk membuat video berbicara dari foto dan cloning suara.
+Platform AI untuk membuat video berbicara dari foto dan audio.
 </p>
-
-<a class="btn" href="#dashboard">Mulai Gratis</a>
+<a href="#dashboard" class="btn">Mulai Gratis</a>
 </section>
 
-<section class="stats">
+<div class="section">
 
-<div class="card">
-<h2>10K+</h2>
-<p>Video Generated</p>
+<div class="card" id="userInfo">
+<img id="userPhoto" alt="Foto Profil">
+<h3 id="userName"></h3>
+<p id="userEmail"></p>
+<br>
+<button id="logoutBtn">Logout</button>
 </div>
 
 <div class="card">
-<h2>5K+</h2>
-<p>Voice Clones</p>
+<h2>Login</h2>
+<br>
+<button id="loginBtn">Login Google</button>
 </div>
 
-<div class="card">
-<h2>99%</h2>
-<p>Lip Sync Accuracy</p>
-</div>
-
-</section>
-
-<section class="dashboard" id="dashboard">
-
-<div class="upload">
-
+<div class="card" id="dashboard">
 <h2>🎬 Generate AI Video</h2>
+<br>
 
-<input type="file" accept="image/*">
+<label>Upload Foto</label>
+<input type="file" id="imageFile" accept="image/*">
 
-<input type="file" accept="audio/*">
+<label>Upload Audio</label>
+<input type="file" id="audioFile" accept="audio/*">
 
-<button>Generate Lip Sync</button>
+<button id="generateBtn">Generate Video</button>
 
-<br><br>
-
-<h2>🎙 Voice Cloning</h2>
-
-<input type="file" accept="audio/*">
-
-<button id="loginBtn">
-  Login Google
-</button>
-
-</div>
-</section>
-
-<section class="stats">
-
-<div class="card">
-<h2>0</h2>
-<p>Video Saya</p>
+<div id="result" style="margin-top:15px"></div>
 </div>
 
 <div class="card">
-<h2>FREE</h2>
-<p>Paket Saat Ini</p>
+<h2>📊 Statistik</h2>
+<p>Video Saya: 0</p>
+<p>Paket: FREE</p>
+<p>Kredit: 100</p>
 </div>
 
-<div class="card">
-<h2>100</h2>
-<p>Kredit Tersisa</p>
 </div>
 
-<div class="card">
-<h2>0</h2>
-<p>Voice Clone</p>
-</div>
+<footer>
+© 2026 FR.AI.LIPSHING
+</footer>
 
-</section>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-<section class="pricing">
-</section>
-
-<section class="pricing">
-
-<div class="price">
-<h2>FREE</h2>
-<h1>$0</h1>
-<p>30 Detik Video</p>
-<p>Watermark</p>
-</div>
-
-<div class="price">
-<h2>PRO</h2>
-<h1>$19</h1>
-<p>3 Menit Video</p>
-<p>Voice Cloning</p>
-<p>No Watermark</p>
-</div>
-
-<div class="price">
-<h2>CREATOR</h2>
-<h1>$49</h1>
-<p>Unlimited</p>
-<p>Priority Render</p>
-<p>API Access</p>
-</div>
-
-</section>
-
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBZlYN1HxlCxc1p6MM-05sm-S3-hGaleZ0",
-  authDomain: "fr-ai-lipshing.firebaseapp.com",
-  projectId: "fr-ai-lipshing",
-  storageBucket: "fr-ai-lipshing.firebasestorage.app",
-  messagingSenderId: "734128052478",
-  appId: "1:734128052478:web:abd308a9b555bbdd26adaf"
+  apiKey: "GANTI_DENGAN_API_KEY",
+  authDomain: "PROJECT.firebaseapp.com",
+  projectId: "PROJECT_ID",
+  storageBucket: "PROJECT.firebasestorage.app",
+  messagingSenderId: "SENDER_ID",
+  appId: "APP_ID"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+loginBtn.addEventListener("click", async () => {
+  try{
+    await signInWithPopup(auth, provider);
+  }catch(e){
+    alert(e.message);
+  }
+});
+
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
+});
+
+onAuthStateChanged(auth, (user) => {
+  if(user){
+    document.getElementById("userInfo").style.display = "block";
+    document.getElementById("userName").textContent = user.displayName || "";
+    document.getElementById("userEmail").textContent = user.email || "";
+    document.getElementById("userPhoto").src = user.photoURL || "";
+  }else{
+    document.getElementById("userInfo").style.display = "none";
+  }
+});
+
+document.getElementById("generateBtn").addEventListener("click", () => {
+  const image = document.getElementById("imageFile").files[0];
+  const audio = document.getElementById("audioFile").files[0];
+
+  if(!image || !audio){
+    alert("Upload foto dan audio terlebih dahulu.");
+    return;
+  }
+
+  document.getElementById("result").innerHTML =
+    "✅ File berhasil dipilih. Hubungkan ke API Lip Sync untuk menghasilkan video.";
+});
+</script>
+
 </body>
 </html>
